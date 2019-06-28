@@ -1,13 +1,14 @@
 const app = require('express')();
-const graphqlHTTP = require('express-graphql')
+const graphqlHTTP = require('express-graphql');
+const schema = require('./schema/schema')
 
 
 app.use('/graphql', graphqlHTTP({
-
+  schema,
+  graphiql: true
 }));
 
-
-PORT = process.env.POST || 4000;
-app.listen(4000, () => {
-  console.log(`server now running at ${PORT}`)
+port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`server now running at ${port}`)
 })
